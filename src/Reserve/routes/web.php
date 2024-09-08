@@ -2,6 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LivewireTestController;
+use App\Http\Controllers\AlpineTestController;
+
+use App\Http\Controllers\EventController;
+use Barryvdh\Debugbar\DataCollector\EventCollector;
+use App\Http\Controllers\ReservationController;
+use App\Http\Controllers\MyPageController;
 
 Route::get('/', function () {
     return view('welcome');
