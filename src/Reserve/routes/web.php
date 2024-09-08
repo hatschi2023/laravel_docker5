@@ -23,12 +23,41 @@ Route::middleware([
     })->name('dashboard');
 });
 
+Route::prefix('manager')
+->middleware('can:manager-higher')
+->group(function(){
+    Route::get('index', function () {
+        dd('manager');
+    });
+    // Route::get('events/past', [EventController::class, 'past'])->name('events.past');
+    // Route::resource('events', EventController::class);
+});
+
+Route::middleware('can:user-higher')
+->group(function(){
+    Route::get('index', function() {
+        dd('user');
+    });
+});
+
+// ->group(function(){
+//     Route::get('/dashboard', [ReservationController::class, 'dashboard'])->name('dashboard');
+//     Route::get('/mypage', [MyPageController::class, 'index'])->name('mypage.index');
+//     Route::get('/mypage/{id}', [MyPageController::class, 'show'])->name('mypage.show');
+//     Route::post('/mypage/{id}', [MyPageController::class, 'cancel'])->name('mypage.cancel');
+//     Route::post('/{id}', [ReservationController::class, 'reserve'])->name('events.reserve');
+// });
+
+
+// Route::get('/{id}', [ReservationController::class, 'detail'])->name('events.detail');
+
+
 
 // livewire-test
-Route::controller(LivewireTestController::class)
-    ->prefix('livewire-test')->name('livewire-test.')->group(function () {
-        Route::get('index', 'index')->name('index');
-        Route::get('register', 'register')->name('register');
-    });
+// Route::controller(LivewireTestController::class)
+//     ->prefix('livewire-test')->name('livewire-test.')->group(function () {
+//         Route::get('index', 'index')->name('index');
+//         Route::get('register', 'register')->name('register');
+//     });
 
-Route::get('alpine-test/index', [AlpineTestController::class, 'index']);
+// Route::get('alpine-test/index', [AlpineTestController::class, 'index']);
