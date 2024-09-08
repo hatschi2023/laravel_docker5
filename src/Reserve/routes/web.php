@@ -1,17 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+use App\Http\Controllers\LivewireTestController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -26,3 +16,13 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+
+// livewire-test
+Route::controller(LivewireTestController::class)
+    ->prefix('livewire-test')->name('livewire-test.')->group(function () {
+        Route::get('index', 'index')->name('index');
+        Route::get('register', 'register')->name('register');
+    });
+
+Route::get('alpine-test/index', [AlpineTestController::class, 'index']);
