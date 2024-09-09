@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Event;
 use App\Http\Requests\StoreEventRequest;
 use App\Http\Requests\UpdateEventRequest;
+use App\Models\Event;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use App\Services\EventService;
@@ -28,7 +28,7 @@ class EventController extends Controller
         // ->leftJoinSub($reservedPeople, 'reservedPeople', function($join){
         //     $join->on('events.id', '=', 'reservedPeople.event_id');
         // })
-        // ->whereDate('start_date', '>=', $today)
+        ->whereDate('start_date', '>=', $today)
         ->orderBy('start_date', 'asc')
         ->paginate(10);
 
@@ -43,29 +43,39 @@ class EventController extends Controller
     }
 
 
-    public function store(StoreEventRequest $request)
+public function store(StoreEventRequest $request)
     {
-// $check = EventService::checkEventDuplication($request['event_date'], $request['start_time'], $request['end_time']);
+        $check = EventService::checkEventDuplication($request['event_date'], $request['start_time'], $request['end_time']);
 
-//         if($check){
-//             session()->flash('status', 'この時間はすでに他の予約が存在します。');
-//             return view('manager.events.create');
-//         };
+        if($check){
+            session()->flash('status', 'この時間はすでに他の予約が存在します。');
+            return view('manager.events.create');
+        };
 
-//         $startDate = EventService::joinDateAndTime($request['event_date'], $request['start_time']);
-//         $endDate = EventService::joinDateAndTime($request['event_date'], $request['end_time']);
+        $startDate = EventService::joinDateAndTime($request['event_date'], $request['start_time']);
+        $endDate = EventService::joinDateAndTime($request['event_date'], $request['end_time']);
 
-//         Event::create([
-//             'name' => $request['event_name'],
-//             'information' => $request['information'],
-//             'start_date' => $startDate,
-//             'end_date' => $endDate,
-//             'max_people' => $request['max_people'],
-//             'is_visible' => $request['is_visible'],
-//         ]);
+        // dd(
+        //     $request['event_name'],
+        //     $request['information'],
+        //     $startDate,
+        //     $endDate,
+        //     $request['max_people'],
+        //     $request['is_visible'],
+        // );
 
-//         session()->flash('status', '登録しました');
-//         return to_route('events.index');
+        Event::create([
+            'name' => $request['event_name'],
+            'information' => $request['information'],
+            'start_date' => $startDate,
+            'end_date' => $endDate,
+            'max_people' => $request['max_people'],
+            'is_visible' => $request['is_visible'],
+        ]);
+
+        
+        session()->flash('status', '登録しました');
+        return to_route('events.index');
     }
 
 
