@@ -32,6 +32,8 @@ class EventController extends Controller
         ->paginate(10);
         // })
 
+        // $events = getWeekEvents($startDate, $endDate);
+
         return view('manager.events.index',
         compact('events'));
     }

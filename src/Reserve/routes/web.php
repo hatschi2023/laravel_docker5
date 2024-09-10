@@ -10,7 +10,7 @@ use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\MyPageController;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('calendar');
 });
 
 Route::middleware([
@@ -35,17 +35,17 @@ Route::middleware('can:user-higher')
     Route::get('index', function() {
         dd('user');
     });
-});
+})
 
-// ->group(function(){
-//     Route::get('/dashboard', [ReservationController::class, 'dashboard'])->name('dashboard');
+->group(function(){
+    Route::get('/dashboard', [ReservationController::class, 'dashboard'])->name('dashboard');
 //     Route::get('/mypage', [MyPageController::class, 'index'])->name('mypage.index');
 //     Route::get('/mypage/{id}', [MyPageController::class, 'show'])->name('mypage.show');
 //     Route::post('/mypage/{id}', [MyPageController::class, 'cancel'])->name('mypage.cancel');
-//     Route::post('/{id}', [ReservationController::class, 'reserve'])->name('events.reserve');
-// });
+    Route::post('/{id}', [ReservationController::class, 'reserve'])->name('events.reserve');
+});
 
 
-// Route::get('/{id}', [ReservationController::class, 'detail'])->name('events.detail');
+Route::get('/{id}', [ReservationController::class, 'detail'])->name('events.detail');
 
 
