@@ -38,11 +38,11 @@
                                 <td class="px-4 py-3">{{ $event->start_date }}</td>
                                 <td class="px-4 py-3">{{ $event->end_date }}</td>
                                 <td class="px-4 py-3">
-                                    {{-- @if (is_null($event->number_of_people))
+                                    @if (is_null($event->number_of_people))
                                         0
                                     @else
                                         {{ $event->number_of_people }}
-                                    @endif --}}
+                                    @endif
                                 </td>
                                 <td class="px-4 py-3">{{ $event->max_people }}</td>
                                 <td class="px-4 py-3 text-center">{{ $event->is_visible  === 1 ? '〇' : '-' }}</td>

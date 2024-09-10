@@ -16,20 +16,21 @@ class EventController extends Controller
     {
         $today = Carbon::today();
 
-        // $reservedPeople = DB::table('reservations')
-        // ->select('event_id', DB::raw('sum(number_of_people) as number_of_people'))
-        // ->whereNull('canceled_date')
-        // ->whereNull('deleted_at')
-        // ->groupBy('event_id');
+        $reservedPeople = DB::table('reservations')
+        ->select('event_id', DB::raw('sum(number_of_people) as number_of_people'))
+        ->whereNull('canceled_date')
+        ->whereNull('deleted_at')
+        ->groupBy('event_id');
 
         $events = DB::table('events')
         ->whereNull('deleted_at')
-        // ->leftJoinSub($reservedPeople, 'reservedPeople', function($join){
-        //     $join->on('events.id', '=', 'reservedPeople.event_id');
-        // })
+        ->leftJoinSub($reservedPeople, 'reservedPeople', function($join){
+            $join->on('events.id', '=', 'reservedPeople.event_id');
+        })
         ->whereDate('start_date', '>=', $today)
         ->orderBy('start_date', 'asc')
         ->paginate(10);
+        // })
 
         return view('manager.events.index',
         compact('events'));
@@ -72,29 +73,26 @@ public function store(StoreEventRequest $request)
     public function show(Event $event)
     {
         $event = Event::findOrFail($event->id);
-        // $users = $event->users;
+        $users = $event->users;
 
-        // $reservations = [];
+        $reservations = [];
 
-        // foreach($users as $user)
-        // {
-        //     $reservedInfo = [
-        //         'name' => $user->name,
-        //         'number_of_people' => $user->pivot->number_of_people,
-        //         'canceled_date' => $user->pivot->canceled_date
-        //     ];
-        //     array_push($reservations, $reservedInfo);
-        // }
-        // dd($reservations);
+        foreach($users as $user)
+        {
+            $reservedInfo = [
+                'name' => $user->name,
+                'number_of_people' => $user->pivot->number_of_people,
+                'canceled_date' => $user->pivot->canceled_date
+            ];
+            array_push($reservations, $reservedInfo);
+        }
 
         $eventDate = $event->eventDate;
         $startTime = $event->startTime;
         $endTime = $event->endTime;
 
-        // dd($eventDate, $startTime, $endTime);
         return view('manager.events.show',
-        compact('event', 'eventDate', 'startTime', 'endTime'));
-        // compact('event', 'users', 'reservations', 'eventDate', 'startTime', 'endTime'));
+        compact('event', 'users', 'reservations', 'eventDate', 'startTime', 'endTime'));
     }
 
 
@@ -149,15 +147,15 @@ public function store(StoreEventRequest $request)
     {
         $today = Carbon::today();
 
-        // $reservedPeople = DB::table('reservations')
-        // ->select('event_id', DB::raw('sum(number_of_people) as number_of_people'))
+        $reservedPeople = DB::table('reservations')
+        ->select('event_id', DB::raw('sum(number_of_people) as number_of_people'))
         // ->whereNull('canceled_date')
-        // ->groupBy('event_id');
+        ->groupBy('event_id');
 
         $events = DB::table('events')
-        // ->leftJoinSub($reservedPeople, 'reservedPeople', function($join){
-        //     $join->on('events.id', '=', 'reservedPeople.event_id');
-        // })
+        ->leftJoinSub($reservedPeople, 'reservedPeople', function($join){
+            $join->on('events.id', '=', 'reservedPeople.event_id');
+        })
         ->whereDate('start_date', '<', $today)
         ->orderBy('start_date', 'desc')
         ->paginate(10);
