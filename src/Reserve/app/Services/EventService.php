@@ -50,7 +50,6 @@ class EventService
         ->whereBetween('start_date', [$startDate, $endDate])
         ->orderBy('start_date', 'asc')
         ->get();
-
     }
 
     public static function getUserReservedEvents($userId, $startDate, $endDate)

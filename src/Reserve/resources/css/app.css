@@ -3,6 +3,6 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-/* .event-calendar{
+.event-calendar{
     width: 1000px;
-} */
+}

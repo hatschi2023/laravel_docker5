@@ -9,7 +9,7 @@
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
-        <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
+        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
         <!-- Scripts -->
         @vite(['resources/css/app.css',
@@ -20,18 +20,27 @@
         <!-- Styles -->
         @livewireStyles
     </head>
-    
-    <body class="font-sans antialiased bg-center bg-cover" style="background-image: url(/images/sky.jpg);">
 
+    <body class="font-sans antialiased bg-center bg-cover" style="background-image: url('images/sky.jpg');">
         <x-jet-banner />
-
         <div class="min-h-screen bg-opacity-50">
-            @livewire('navigation-menu')
+            @if (Route::has('login'))
+                <div class="fixed top-0 right-0 hidden px-6 py-4 sm:block">
+                    @auth
+                        <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 underline">ダッシュボード</a>
+                    @else
+                        <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">ログイン</a>
+                        @if (Route::has('register'))
+                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">新規登録</a>
+                        @endif
+                    @endauth
+                </div>
+            @endif
 
             <!-- Page Heading -->
             @if (isset($header))
-            <header class="bg-opacity-50 shadow bg-sky-200">
-                    <div class="px-4 pt-5 pb-2 mx-auto max-w-7xl sm:px-6 lg:px-8">
+                <header class="bg-opacity-50 shadow bg-sky-300">
+                    <div class="px-12 mx-auto max-w-7xl pt4 sm:px-6 lg:px-8">
                         {{ $header }}
                     </div>
                 </header>
@@ -49,7 +58,6 @@
         </div>
 
         @stack('modals')
-
         @livewireScripts
     </body>
 </html>
