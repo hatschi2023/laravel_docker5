@@ -115,7 +115,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                {{-- @foreach($reservations as $reservation)
+                                @foreach($reservations as $reservation)
                                     @if(is_null($reservation['canceled_date']))
                                         <tr>
                                         <td class="px-4 py-3">{{ $reservation['name'] }}</td>
@@ -123,7 +123,7 @@
                                         <td class="px-4 py-3">{{ $event->max_people - $reservation['number_of_people'] }}</td>
                                         </tr>
                                     @endif
-                                @endforeach --}}
+                                @endforeach
                             </tbody>
                         </table>
                 </div>

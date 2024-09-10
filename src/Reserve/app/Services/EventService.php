@@ -37,36 +37,36 @@ class EventService
 
     public static function getWeekEvents($startDate, $endDate)
     {
-        // $reservedPeople = DB::table('reservations')
-        // ->select('event_id', DB::raw('sum(number_of_people) as number_of_people'))
-        // ->whereNull('canceled_date')
-        // ->groupBy('event_id');
+        $reservedPeople = DB::table('reservations')
+        ->select('event_id', DB::raw('sum(number_of_people) as number_of_people'))
+        ->whereNull('canceled_date')
+        ->groupBy('event_id');
 
-        // return DB::table('events')
-        // ->leftJoinSub($reservedPeople, 'reservedPeople', function($join){
-        //     $join->on('events.id', '=', 'reservedPeople.event_id');
-        // })
-        // ->where('events.is_visible', 1)
-        // ->whereBetween('start_date', [$startDate, $endDate])
-        // ->orderBy('start_date', 'asc')
-        // ->get();
+        return DB::table('events')
+        ->leftJoinSub($reservedPeople, 'reservedPeople', function($join){
+            $join->on('events.id', '=', 'reservedPeople.event_id');
+        })
+        ->where('events.is_visible', 1)
+        ->whereBetween('start_date', [$startDate, $endDate])
+        ->orderBy('start_date', 'asc')
+        ->get();
 
     }
 
     public static function getUserReservedEvents($userId, $startDate, $endDate)
     {
         // ログインしていない場合は空のコレクションを返す
-        // if (is_null($userId)) {
-        //     return collect();
-        // }
+        if (is_null($userId)) {
+            return collect();
+        }
 
-        // return DB::table('reservations')
-        //     ->join('events', 'reservations.event_id', '=', 'events.id')
-        //     ->where('reservations.user_id', $userId)
-        //     ->whereNull('reservations.canceled_date')
-        //     ->whereBetween('events.start_date', [$startDate, $endDate])
-        //     ->select('events.*')
-        //     ->get();
+        return DB::table('reservations')
+            ->join('events', 'reservations.event_id', '=', 'events.id')
+            ->where('reservations.user_id', $userId)
+            // ->whereNull('reservations.canceled_date')
+            ->whereBetween('events.start_date', [$startDate, $endDate])
+            ->select('events.*')
+            ->get();
     }
 
     // 有効なEventが存在するかチェック

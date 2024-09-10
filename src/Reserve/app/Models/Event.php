@@ -53,23 +53,23 @@ class Event extends Model
     // EventとUserの多対多リレーション
     public function users()
     {
-        // return $this->belongsToMany(User::class, 'reservations')
-        // ->withPivot(['id', 'number_of_people', 'canceled_date']);
+        return $this->belongsToMany(User::class, 'reservations')
+        ->withPivot(['id', 'number_of_people', 'canceled_date']);
     }
 
     // EventとReservationの1対多リレーション
-    // public function reservations()
-    // {
-    //     return $this->hasMany(Reservation::class);
-    // }
+    public function reservations()
+    {
+        return $this->hasMany(Reservation::class);
+    }
 
     //Event 削除時に関連する reservations を論理削除
-    // protected static function boot()
-    // {
-        // parent::boot();
-        // static::deleting(function($event){
-        //     $event->reservations()->delete();//論理削除
-        // });
-    // }
+    protected static function boot()
+    {
+        parent::boot();
+        static::deleting(function($event){
+            $event->reservations()->delete();//論理削除
+        });
+    }
 
 }
