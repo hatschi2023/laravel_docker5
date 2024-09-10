@@ -89,10 +89,10 @@
                             class="inline-flex items-center justify-center h-10 mt-2 font-semibold text-white bg-red-500 rounded-md w-28 hover:bg-red-600 focus:bg-red-600">
                             イベント削除
                         </a>
-                        {{-- <form id="delete_{{ $event->id }}" method="post" action="{{ route('events.destroy', ['event' => $event->id ]) }}">
+                        <form id="delete_{{ $event->id }}" method="post" action="{{ route('events.destroy', ['event' => $event->id ]) }}">
                             @csrf
                             @method('DELETE')
-                        </form> --}}
+                        </form>
                     @endif
                 </div>
             </div>
