@@ -37,7 +37,7 @@
                     </div>
 
                     <div class="mt-4">
-                        <x-label for="information" value="イベント詳細" />
+                        <x-jet-label for="information" value="イベント詳細" />
                         <div class="mx-4 mt-1">
                             {!! nl2br(e($event->information)) !!}
                         </div>

@@ -1,15 +1,22 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="text-xl font-semibold leading-tight text-gray-800">
-            {{ __('ダッシュボード') }}
+           イベントカレンダー
         </h2>
     </x-slot>
 
-    <div class="py-12">
-        <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
-            <div class="overflow-hidden bg-white shadow-xl sm:rounded-lg">
-                <x-jet-welcome />
+    <div class="py-4">
+        <div class="mx-auto event-calendar sm:px-6 lg:px-8">
+            <div class="overflow-hidden bg-white shadow-xl sm:rounded-xl">
+                @if (session('status'))
+                    <div class="px-4 py-2 text-sm font-medium text-green-600 text-bold bg-green-50">
+                        {{ session('status') }}
+                    </div>
+                @endif
+                @livewire('calendar')
             </div>
         </div>
     </div>
 </x-app-layout>
+
+
