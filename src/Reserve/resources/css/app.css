@@ -6,3 +6,15 @@
 .event-calendar{
     width: 1000px;
 }
+
+.cloud-border {
+    background-color: #f9fafa; /* 背景色を淡い青色に */
+    padding: 20px;
+    border-radius: 30% 55% 50% 30%/60% 75% 70% 100%  !important;
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.1),  /* 柔らかい影 */
+        0 10px 30px rgba(0, 0, 0, 0.05); /* 追加の影で立体感を強調 */
+    border: 3px solid #c5e4fc !important; /* 淡い青色の枠線 */
+    position: relative;
+    z-index: 1;
+}

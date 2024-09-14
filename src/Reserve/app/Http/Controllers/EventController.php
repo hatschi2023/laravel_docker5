@@ -8,6 +8,7 @@ use App\Models\Event;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use App\Services\EventService;
+use App\Services\ReservationService;
 
 
 class EventController extends Controller
@@ -30,9 +31,6 @@ class EventController extends Controller
         ->whereDate('start_date', '>=', $today)
         ->orderBy('start_date', 'asc')
         ->paginate(10);
-        // })
-
-        // $events = getWeekEvents($startDate, $endDate);
 
         return view('manager.events.index',
         compact('events'));
@@ -78,11 +76,11 @@ public function store(StoreEventRequest $request)
         $users = $event->users;
 
         $reservations = [];
-
         foreach($users as $user)
         {
             $reservedInfo = [
                 'name' => $user->name,
+                'path' => $user->profile_photo_path,
                 'number_of_people' => $user->pivot->number_of_people,
                 'canceled_date' => $user->pivot->canceled_date
             ];
@@ -92,9 +90,10 @@ public function store(StoreEventRequest $request)
         $eventDate = $event->eventDate;
         $startTime = $event->startTime;
         $endTime = $event->endTime;
+        $reservablePeople = ReservationService::countReservablePeople($event);
 
         return view('manager.events.show',
-        compact('event', 'users', 'reservations', 'eventDate', 'startTime', 'endTime'));
+        compact('event', 'users', 'reservations', 'eventDate', 'startTime', 'endTime', 'reservablePeople'));
     }
 
 
@@ -115,7 +114,12 @@ public function store(StoreEventRequest $request)
 
     public function update(UpdateEventRequest $request, Event $event)
     {
-        $check = EventService::countEventDuplication($request['event_date'], $request['start_time'], $request['end_time']);
+        $check = EventService::countEventDuplication(
+            $request['event_date'],
+            $request['start_time'],
+            $request['end_time'],
+            $event->id //現在のイベントID
+        );
 
         if($check > 1){
             $event = Event::findOrFail($event->id);

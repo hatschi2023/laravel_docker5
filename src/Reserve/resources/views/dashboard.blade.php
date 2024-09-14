@@ -9,7 +9,7 @@
         <div class="mx-auto event-calendar sm:px-6 lg:px-8">
             <div class="overflow-hidden bg-white shadow-xl sm:rounded-xl">
                 @if (session('status'))
-                    <div class="px-4 py-2 text-sm font-medium text-green-600 text-bold bg-green-50">
+                    <div class="px-4 py-4 text-sm font-medium text-green-600 text-bold bg-green-50">
                         {{ session('status') }}
                     </div>
                 @endif
