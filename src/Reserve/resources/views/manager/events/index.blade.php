@@ -7,19 +7,19 @@
 
     <div class="py-4">
         <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
-            <div class="px-4 overflow-hidden bg-white shadow-xl sm:rounded-lg">
+            <div class="px-4 overflow-hidden bg-white shadow-xl sm:rounded-xl">
                 <section class="text-gray-600 body-font">
 
-                    <div class="container px-5 py-4 mx-auto">
+                    <div class="container mx-auto">
                         @if (session('status'))
                             <div class="px-4 py-4 text-sm font-medium text-green-600 bg-green-50">
                                 {{ session('status') }}
                             </div>
                         @endif
                         <div class="flex justify-between">
-                            <button onclick="location.href='{{ route('events.past') }}'" class="flex px-6 py-2 mb-4 ml-auto text-white bg-green-500 border-0 rounded focus:outline-none hover:bg-green-600">過去のイベント一覧</button>
+                            <button onclick="location.href='{{ route('events.past') }}'" class="flex px-6 py-2 my-4 ml-auto text-white bg-green-500 border-0 rounded focus:outline-none hover:bg-green-600">過去のイベント一覧</button>
 
-                            <button onclick="location.href='{{ route('events.create') }}'" class="flex px-6 py-2 mb-4 ml-auto text-white bg-indigo-500 border-0 rounded focus:outline-none hover:bg-indigo-600">新規登録</button>
+                            <button onclick="location.href='{{ route('events.create') }}'" class="flex px-6 py-2 my-4 ml-auto text-white bg-indigo-500 border-0 rounded focus:outline-none hover:bg-indigo-600">新規登録</button>
                         </div>
 
                         <div class="w-full mx-auto overflow-auto">

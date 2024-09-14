@@ -18,11 +18,6 @@ class User extends Authenticatable
     use Notifiable;
     use TwoFactorAuthenticatable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
     protected $fillable = [
         'name',
         'email',
@@ -47,8 +42,7 @@ class User extends Authenticatable
 
     public function events()
     {
-        return $this->belongsToMany(Event::class, 'reservations');
-        // ->withPivot('id', 'number_of_people', 'canceled_date');
-
+        return $this->belongsToMany(Event::class, 'reservations')
+        ->withPivot('id', 'number_of_people', 'canceled_date');
     }
 }

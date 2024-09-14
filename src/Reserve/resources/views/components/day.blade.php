@@ -19,7 +19,7 @@
     <div class="h-8 px-2 py-1 border border-gray-200">17:30</div>
     <div class="h-8 px-2 py-1 border border-gray-200">18:00</div>
     <div class="h-8 px-2 py-1 border border-gray-200">18:30</div>
-    <div class="h-8 px-2 py-1 border border-gray-200">19:00</div>
-    <div class="h-8 px-2 py-1 border border-gray-200">19:30</div>
-    <div class="h-8 px-2 py-1 border border-gray-200">20:00</div>
+    {{-- <div class="h-8 px-2 py-1 border border-gray-200">19:00</div> --}}
+    {{-- <div class="h-8 px-2 py-1 border border-gray-200">19:30</div>
+    <div class="h-8 px-2 py-1 border border-gray-200">20:00</div> --}}
 </div>

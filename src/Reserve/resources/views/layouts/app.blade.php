@@ -20,7 +20,7 @@
         <!-- Styles -->
         @livewireStyles
     </head>
-    
+
     <body class="font-sans antialiased bg-center bg-cover" style="background-image: url(/images/sky.jpg);">
 
         <x-jet-banner />
@@ -30,7 +30,7 @@
 
             <!-- Page Heading -->
             @if (isset($header))
-            <header class="bg-opacity-50 shadow bg-sky-200">
+                <header class="bg-opacity-50 shadow bg-sky-200">
                     <div class="px-4 pt-5 pb-2 mx-auto max-w-7xl sm:px-6 lg:px-8">
                         {{ $header }}
                     </div>

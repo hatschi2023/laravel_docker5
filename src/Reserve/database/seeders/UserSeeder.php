@@ -10,11 +10,6 @@ use Termwind\Components\Hr;
 
 class UserSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
     public function run()
     {
         DB::table('users')->insert([
@@ -25,7 +20,7 @@ class UserSeeder extends Seeder
                 'role' => 1
             ],
             [
-                'name' => 'manager',
+                'name' => '管理者',
                 'email' => 'manager@manager.com',
                 'password' => Hash::make('pass123'),
                 'role' => 5
@@ -36,6 +31,37 @@ class UserSeeder extends Seeder
                 'password' => Hash::make('pass123'),
                 'role' => 9
             ],
+            [
+                'name' => '健太',
+                'email' => 'test1@test.com',
+                'password' => Hash::make('pass123'),
+                'role' => 9
+            ],
+            [
+                'name' => 'ゆみ',
+                'email' => 'test2@test.com',
+                'password' => Hash::make('pass123'),
+                'role' => 9
+            ],
+            [
+                'name' => 'ピーコ',
+                'email' => 'test3@test.com',
+                'password' => Hash::make('pass123'),
+                'role' => 9
+            ],
+            [
+                'name' => 'あいこ',
+                'email' => 'test4@test.com',
+                'password' => Hash::make('pass123'),
+                'role' => 9
+            ],
+            [
+                'name' => 'totoro',
+                'email' => 'test5@test.com',
+                'password' => Hash::make('pass123'),
+                'role' => 9
+            ],
+
         ]);
     }
 }

@@ -5,9 +5,9 @@
         </h2>
     </x-slot>
 
-    <div class="py-12">
+    <div class="py-4">
         <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
-            <div class="overflow-hidden bg-gray-100 shadow-xl sm:rounded-lg">
+            <div class="overflow-hidden bg-gray-100 shadow-xl sm:rounded-xl">
 
                 <div class="max-w-2xl py-4 mx-auto">
                     <x-jet-validation-errors class="mb-4" />
@@ -54,7 +54,7 @@
                             <x-jet-input id="max_people" class="block w-full mt-1" type="number" name="max_people" required />
                         </div>
 
-                        <div class="flex justify-around space-x-4">
+                        <div class="flex justify-around my-4 space-x-4">
                             <input type="radio" name="is_visible" value="1" checked />表示
                             <input type="radio" name="is_visible" value="0" checked />非表示
                         </div>

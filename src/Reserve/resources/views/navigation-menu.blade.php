@@ -1,7 +1,7 @@
 <nav x-data="{ open: false }" class="bg-opacity-50 bg-sky-200">
 
     <!-- Primary Navigation Menu -->
-    <div class="px-4 pt-4 mx-auto max-w-7xl sm:px-6 lg:px-8 ">
+    <div class="px-4 pt-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
             <div class="flex">
                 <!-- Logo -->
@@ -16,9 +16,9 @@
                     <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         イベントカレンダー
                     </x-jet-nav-link>
-                    {{-- <x-jet-nav-link href="{{ route('mypage.index') }}" :active="request()->routeIs('mypage.index')">
+                    <x-jet-nav-link href="{{ route('mypage.index') }}" :active="request()->routeIs('mypage.index')">
                         マイページ
-                    </x-jet-nav-link> --}}
+                    </x-jet-nav-link>
                     @can('manager-higher')
                     <x-jet-nav-link href="{{ route('events.index') }}" :active="request()->routeIs('events.index')">
                         イベント管理
@@ -80,7 +80,7 @@
 
                 <!-- Settings Dropdown -->
                 <div class="relative flex ml-3">
-                    <div class="block px-2 pt-2 text-lg text-gray-600">
+                    <div class="block px-2 pt-2 text-gray-600 text-ls">
                         {{ __(Auth::user()->name) }}
                     </div>
                     <x-jet-dropdown align="right" width="48">
@@ -88,7 +88,6 @@
                                 {{-- プロフィール写真 --}}
                                 @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
                                     <button class="flex text-sm transition border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300">
-
                                         <img class="object-cover w-10 h-10 rounded-full" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
                                     </button>
                                 @else
@@ -108,7 +107,6 @@
                             <!-- Account Management -->
                             <div class="block px-4 py-2 text-gray-400 text-s">
                                 {{ __(Auth::user()->name) }}
-                                {{-- {{ __('アカウント管理') }} --}}
                             </div>
 
                             <x-jet-dropdown-link href="{{ route('profile.show') }}">
@@ -152,14 +150,14 @@
     </div>
 
     <!-- Responsive Navigation Menu -->
-    <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
-        <div class="pt-2 pb-3 space-y-1">
+    <div :class="{'block': open, 'hidden': ! open}" class="hidden w-full sm:hidden">
+        <div class="w-full pt-2 pb-3 space-y-1 overflow-x-hidden">
             <x-jet-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                 イベントカレンダー
             </x-jet-responsive-nav-link>
-            {{-- <x-jet-responsive-nav-link href="{{ route('mypage.index') }}" :active="request()->routeIs('mypage.index')">
+            <x-jet-responsive-nav-link href="{{ route('mypage.index') }}" :active="request()->routeIs('mypage.index')">
                 マイページ
-            </x-jet-responsive-nav-link> --}}
+            </x-jet-responsive-nav-link>
             @can('manager-higher')
             <x-jet-responsive-nav-link href="{{ route('events.index') }}" :active="request()->routeIs('events.index')">
                 イベント管理
