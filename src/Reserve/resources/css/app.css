@@ -18,3 +18,35 @@
     position: relative;
     z-index: 1;
 }
+
+
+.event-border {
+    padding: 20px;
+    /* border-radius: 30% !important; */
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.1),  /* 柔らかい影 */
+        0 10px 30px rgba(0, 0, 0, 0.05); /* 追加の影で立体感を強調 */
+    border: 3px solid #9edff8 !important; /* 淡い青色の枠線 */
+    position: relative;
+    z-index: 1;
+}
+.mypage-border {
+    padding: 20px;
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.1),  /* 柔らかい影 */
+        0 10px 30px rgba(0, 0, 0, 0.05); /* 追加の影で立体感を強調 */
+    border: 3px solid #b4e993!important; /* 淡い青色の枠線 */
+    position: relative;
+    z-index: 1;
+}
+
+.calendar-border {
+    /* padding: 20px; */
+    /* border-radius: 30% !important; */
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.1),  /* 柔らかい影 */
+        0 10px 30px rgba(0, 0, 0, 0.05); /* 追加の影で立体感を強調 */
+    border: 3px solid #9edff8 !important; /* 淡い青色の枠線 */
+    position: relative;
+    z-index: 1;
+}
