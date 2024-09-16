@@ -28,7 +28,12 @@
 
                 <!-- Current Profile Photo -->
                 <div class="mt-2" x-show="! photoPreview">
-                    <img src="{{ $this->user->profile_photo_url }}" alt="{{ $this->user->name }}" class="object-cover w-20 h-20 rounded-full">
+
+                    @if ($this->user->profile_photo_path)
+                        <img src="{{ $this->user->profile_photo_url }}" alt="{{ $this->user->name }}" class="object-cover w-20 h-20 rounded-full">
+                    @else
+                        <img class="object-cover w-20 h-20 rounded-full" src="{{ Gravatar::get($this->user->email, ['size' => 80]) }}" alt="{{ $this->user->name }}">
+                    @endif
                 </div>
 
                 <!-- New Profile Photo Preview -->
@@ -38,7 +43,7 @@
                     </span>
                 </div>
 
-                <x-jet-secondary-button class="mt-2 mr-2" type="button" x-on:click.prevent="$refs.photo.click()">
+               <x-jet-secondary-button class="mt-2 mr-2" type="button" x-on:click.prevent="$refs.photo.click()">
                     {{ __('画像を選択してください') }}
                 </x-jet-secondary-button>
 

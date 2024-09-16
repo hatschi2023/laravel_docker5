@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "54d2bd03be01397b66d350e61087a0a7",
+    "content-hash": "25149787d53abbeed3d5e98dac93210b",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -269,6 +269,69 @@
             "time": "2024-02-09T16:56:22+00:00"
         },
         {
+            "name": "creativeorange/gravatar",
+            "version": "v1.0.24",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/creativeorange/gravatar.git",
+                "reference": "ec0d78c7d4ef6d66c3cc09b6a03ab8d53e44379f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/creativeorange/gravatar/zipball/ec0d78c7d4ef6d66c3cc09b6a03ab8d53e44379f",
+                "reference": "ec0d78c7d4ef6d66c3cc09b6a03ab8d53e44379f",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^5|^6|^7|^8|^9|^10.0|^11.0",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "nunomaduro/larastan": "^0.6.2|^2.4",
+                "orchestra/testbench": "^5.4|^8.0|^9.0",
+                "php": ">=7.2"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Creativeorange\\Gravatar\\GravatarServiceProvider"
+                    ],
+                    "aliases": {
+                        "Gravatar": "Creativeorange\\Gravatar\\Facades\\Gravatar"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Creativeorange\\Gravatar\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jaco Tijssen",
+                    "email": "jaco@creativeorange.nl",
+                    "homepage": "https://www.creativeorange.nl",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A Laravel Gravatar package for retrieving gravatar image URLs or checking the existance of an image.",
+            "keywords": [
+                "avatar",
+                "gravatar",
+                "laravel"
+            ],
+            "support": {
+                "issues": "https://github.com/creativeorange/gravatar/issues",
+                "source": "https://github.com/creativeorange/gravatar/tree/v1.0.24"
+            },
+            "time": "2024-02-28T09:23:55+00:00"
+        },
+        {
             "name": "dasprid/enum",
             "version": "1.0.6",
             "source": {
@@ -392,6 +455,50 @@
                 "source": "https://github.com/dflydev/dflydev-dot-access-data/tree/v3.0.3"
             },
             "time": "2024-07-08T12:26:09+00:00"
+        },
+        {
+            "name": "dionbosschieter/gravatar",
+            "version": "0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dionbosschieter/gravatar.git",
+                "reference": "b89f7c983c11c56256cbabc60fe8402c435cc5de"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dionbosschieter/gravatar/zipball/b89f7c983c11c56256cbabc60fe8402c435cc5de",
+                "reference": "b89f7c983c11c56256cbabc60fe8402c435cc5de",
+                "shasum": ""
+            },
+            "require-dev": {
+                "phpspec/phpspec": "~2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Gravatar\\": "src/Gravatar"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "dionbosschieter",
+                    "email": "dionbosschieter@gmail.com"
+                }
+            ],
+            "description": "Simple transformer to get a gravatar url on a User model",
+            "keywords": [
+                "gravatar",
+                "laravel"
+            ],
+            "support": {
+                "issues": "https://github.com/dionbosschieter/gravatar/issues",
+                "source": "https://github.com/dionbosschieter/gravatar/tree/0.2"
+            },
+            "time": "2015-11-15T13:16:30+00:00"
         },
         {
             "name": "doctrine/inflector",

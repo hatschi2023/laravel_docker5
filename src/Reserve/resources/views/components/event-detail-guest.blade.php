@@ -15,7 +15,9 @@
 
     <div class="pt-4 pb-2">
         <div class="py-8 mx-auto max-w-7xl sm:px-6 lg:px-8">
-            <div class="overflow-hidden bg-white shadow-xl py- sm:rounded-lg cloud-border">
+            <div class="overflow-hidden bg-white shadow-xl py- sm:rounded-xl event-border">
+            {{-- <div class="overflow-hidden bg-white shadow-xl py- sm:rounded-xl cloud-border"> --}}
+
                 <div class="max-w-2xl py-8 mx-auto">
 
                     <x-jet-validation-errors class="mb-4" />

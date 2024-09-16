@@ -7,7 +7,8 @@
 
     <div class="pt-4 pb-2">
         <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
-            <div class="py-4 overflow-hidden bg-white shadow-xl sm:rounded-xl cloud-border">
+            <div class="py-4 overflow-hidden bg-white shadow-xl sm:rounded-xl mypage-border">
+            {{-- <div class="py-4 overflow-hidden bg-white shadow-xl sm:rounded-xl cloud-border"> --}}
 
                 <div class="max-w-2xl py-4 mx-auto">
                     <x-jet-validation-errors class="mb-4" />

@@ -7,7 +7,7 @@
 
     <div class="py-4">
         <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
-            <div class="px-4 overflow-hidden bg-white shadow-xl sm:rounded-xl">
+            <div class="px-4 overflow-hidden bg-white shadow-xl sm:rounded-xl mypage-border">
                 <section class="text-gray-600 body-font">
 
                     <div class="container px-5 py-4 mx-auto">
@@ -51,7 +51,7 @@
 
     <div>
         <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
-            <div class="px-4 overflow-hidden bg-white shadow-xl sm:rounded-xl">
+            <div class="px-4 overflow-hidden bg-white shadow-xl sm:rounded-xl mypage-border">
                 <div class="container px-5 py-4 mx-auto">
                 <h2 class="py-2 text-lg font-bold text-center rounded-l rounded-r bg-sky-200">過去のイベント一覧</h2>
                 <section class="text-gray-600 body-font">

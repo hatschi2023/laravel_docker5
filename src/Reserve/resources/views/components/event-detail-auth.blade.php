@@ -7,8 +7,8 @@
 
     <div class="pt-4 pb-2">
         <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
-            <div class="overflow-hidden bg-white shadow-xl sm:rounded-xl cloud-border">
-
+            <div class="overflow-hidden bg-white shadow-xl sm:rounded-xl event-border">
+                {{-- <div class="overflow-hidden bg-white shadow-xl sm:rounded-xl cloud-border"> --}}
                 <div class="max-w-2xl py-4 mx-auto">
                     <x-jet-validation-errors class="mb-4" />
 
@@ -67,7 +67,7 @@
 
 
                         {{-- 予約可能人数 --}}
-                        <div class="mt-4 mr-20">
+                        <div class="mt-4 mr-16">
                             <x-jet-label for="reserved_people" value="予約可能人数" />
                             <div class="mx-4 mt-4 text-red-500 ">
                                 @if ($event->eventDate >= now()->format('Y年m月d日'))

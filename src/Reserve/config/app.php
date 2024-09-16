@@ -212,6 +212,7 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         'Constant' => App\Constants\EventConst::class,
+        'Gravatar' => Creativeorange\Gravatar\Facades\Gravatar::class,
     ])->toArray(),
 
 ];
